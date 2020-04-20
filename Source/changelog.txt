@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+  Changes:
+    - Updated leighzermods.utils.createItemGroup call, added icon size as a param now that the library function takes that as a param.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
   Changes:
     - Initial release.
