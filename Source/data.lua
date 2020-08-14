@@ -30,12 +30,12 @@ leighzermods.utils.createTechnology("factoricon",factoriconTechIcons,true,factor
 --END create factoricon technology
 
 --create precursor factoricon fluids
-local factoriconGelIcons = {{icon="__leighzerlib__/graphics/factoricons/factoricon-gel.png",icon_size=32}}
+local factoriconGelIcons = {{icon="__leighzerlib__/graphics/icons/factoricons/factoricon-gel.png",icon_size=32}}
 local autoBarrel = false
 local topRowSubgroup = "leighzerfactoricons-top-row"
 leighzermods.utils.createFluid("factoricon-gel",leighzermods.tints.white,leighzermods.tints.white,factoriconGelIcons,autoBarrel,topRowSubgroup,"a","Factoricon gel")
 
-local factoriconInkIcons = {{icon="__leighzerlib__/graphics/factoricons/factoricon-ink.png",icon_size=32}}
+local factoriconInkIcons = {{icon="__leighzerlib__/graphics/icons/factoricons/factoricon-ink.png",icon_size=32}}
 leighzermods.utils.createFluid("factoricon-ink",leighzermods.tints.black,leighzermods.tints.black,factoriconInkIcons,autoBarrel,topRowSubgroup,"b","Factoricon ink")
 --END create precursor factoricon fluids
 
@@ -66,7 +66,7 @@ require("generated-factoricons")
 -- factoricon-grey-zoom_out
 -- factoricon-grey-zoom_out_map
 
-leighzermods.utils.createItemOrFluidFromGeneric("factoricon","white","rocket-part",topRowSubgroup,"c",100)
+leighzermods.utils.createItemFromGeneric("factoricon","white","rocket-part",topRowSubgroup,"c",100)
 local factoriconRocketPartIngredients = {
     {
         name="factoricon-grey-wrap_text", amount=1
@@ -108,4 +108,8 @@ leighzermods.utils.createRecipe("space-science-pack",50,false,"crafting",spaceSc
 data.raw.tool["space-science-pack"].localised_description = "Used by labs for research."
 leighzermods.utils.addEffect('space-science-pack',{type = 'unlock-recipe', recipe = 'space-science-pack'})
 
+--launching a rocket is the ultimate goal of the mod - there is no item that we can provide that covers the cost to launch the rocket
+if data.raw.item["satellite"] then
+    data.raw.item["satellite"].rocket_launch_product = nil --make launching a satellite return nothing - we already have a way to get space science
+end
 --END VANILLA UPDATES
