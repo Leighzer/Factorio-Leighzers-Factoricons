@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+  Changes:
+    - Light code refactoring.
+    - Removed rocket launch product from satellite. Space science packs are already craftable, and nothing can quite repay launching a rocket with this mod.    
+---------------------------------------------------------------------------------------------------
 Version: 0.1.1
   Changes:
     - Updated leighzermods.utils.createItemGroup call, added icon size as a param now that the library function takes that as a param.

@@ -1,11 +1,11 @@
 {
   "name": "leighzerfactoricons",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "title": "Leighzer's Factoricons",
   "author": "Leighzer",
   "contact": "Please message me on the factorio forums my username is leighzer.",
   "homepage": "",
-  "factorio_version": "0.18",
-  "dependencies": [ "base >= 0.18.47", "leighzerlib >= 0.1.2"],
+  "factorio_version": "1.0",
+  "dependencies": [ "base >= 1.0.0", "leighzerlib >= 0.2.0"],
   "description": "The secret to getting to space is in the planet's water... Complexity mod that adds 9550 abstract intermediary items to the rocket part production chain. Multiplayer recommended. SEE WARNINGS ON MOD PAGE."
 }
