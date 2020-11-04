@@ -5,6 +5,7 @@ end
 if not leighzermods.leighzerfactoricons then
     leighzermods.leighzerfactoricons = {}
 end
+leighzermods.leighzerfactoricons.precursorIngredients = settings.startup["precursorIngredients"].value
 
 -- crafting tabs and rows
 leighzermods.utils.createItemGroup("leighzerfactoricons","zz","zz","__leighzerlib__/graphics/item-group/factoricon-item-group.png",128,"Factoricons")
@@ -28,7 +29,7 @@ local factoriconTechUnit = {
 }
 local factoriconTechPrereqs = {"rocket-control-unit"}
 local factoriconTechLocName = "Factoricon technology"
-local factoriconTechLocDesc = "The secret to space travel is in the planets water..." -- \(e.e)/
+local factoriconTechLocDesc = "The secret to space travel is in the planet's water..." -- \(e.e)/
 leighzermods.utils.createTechnology("factoricon",factoriconTechIcons,true,factoriconTechEffects,factoriconTechUnit,factoriconTechPrereqs,"a",factoriconTechLocName,factoriconTechLocDesc)
 -- END create factoricon technology
 
@@ -43,15 +44,24 @@ leighzermods.utils.createFluid("factoricon-ink",leighzermods.tints.black,leighze
 -- END create precursor factoricon fluids
 
 -- create precursor factoricon fluid recipes
-local gelIngredients = {{type="fluid",name="water",amount=10}}
+local gelIngredients = {} 
+local inkIngredients = {}
+if leighzermods.leighzerfactoricons.precursorIngredients == "Water & iron & copper plates" then
+    gelIngredients = {{type="fluid",name="water",amount=10},{type="item",name="iron-plate",amount=2},{type="item",name="copper-plate",amount=2}}
+    inkIngredients = {{type="fluid",name="water",amount=5},{type="item",name="iron-plate",amount=1},{type="item",name="copper-plate",amount=1}}
+else
+    gelIngredients = {{type="fluid",name="water",amount=10}}
+    inkIngredients = {{type="fluid",name="water",amount=5}}
+end
+
 local gelResults = {{type="fluid",name="factoricon-gel",amount=10}}
+local inkResults = {{type="fluid",name="factoricon-ink",amount=10}}
+
 -- nil icons so will use icon from fluid - reasoning for nil locale
 -- nil main product, not really applicable for this kind of recipe
 leighzermods.utils.createRecipeComplex("factoricon-gel",1,false,"chemistry",gelIngredients,nil,gelResults,topRowSubgroup,"a",nil,true,nil)
 leighzermods.utils.addEffect('factoricon',{type = 'unlock-recipe', recipe = 'factoricon-gel'})
 
-local inkIngredients = {{type="fluid",name="water",amount=5}}
-local inkResults = {{type="fluid",name="factoricon-ink",amount=10}}
 leighzermods.utils.createRecipeComplex("factoricon-ink",1,false,"chemistry",inkIngredients,nil,inkResults,topRowSubgroup,"b",nil,true,nil)
 leighzermods.utils.addEffect('factoricon',{type = 'unlock-recipe', recipe = 'factoricon-ink'})
 -- END create precursor factoricon fluid recipes

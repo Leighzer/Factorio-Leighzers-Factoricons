@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+  Changes:
+    - Added setting to set required ingredients for factoricon precursors.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
   Changes:
     - Light code refactoring.
