@@ -8,9 +8,15 @@ end
 leighzermods.leighzerfactoricons.precursorIngredients = settings.startup["precursorIngredients"].value
 
 -- crafting tabs and rows
-leighzermods.utils.createItemGroup("leighzerfactoricons","zz","zz","__leighzerlib__/graphics/item-group/factoricon-item-group.png",128,"Factoricons")
-leighzermods.utils.createItemSubgroup("leighzerfactoricons-top-row","leighzerfactoricons","a")
-leighzermods.utils.createItemSubgroup("leighzerfactoricons","leighzerfactoricons","b")
+
+local groupOrder = 1000
+leighzermods.utils.createItemSubgroup("leighzerfactoricons-top-row","leighzerfactoricons-white","a")
+for k,v in pairs(leighzermods.leighzerfactoricons.tints) do
+    local factoriconGroupIcons = {{icon="__leighzerlib__/graphics/item-group/factoricon-item-group.png", tint=v, icon_size=128}}
+    leighzermods.utils.createItemGroup("leighzerfactoricons-" .. k,"zz-"..groupOrder,"zz-"..groupOrder,factoriconGroupIcons,"Factoricons")
+    leighzermods.utils.createItemSubgroup("leighzerfactoricons-"..k,"leighzerfactoricons-"..k,"b")
+    groupOrder = groupOrder + 1
+end
 
 -- create factoricon technology
 local factoriconTechIcons = {{icon="__leighzerlib__/graphics/item-group/factoricon-item-group.png", icon_size=128}}
